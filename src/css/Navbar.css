@@ -1,0 +1,9 @@
+.navColor {
+  background-color: #8FCD91 !important;
+}
+.changeNavColor {
+  color: black !important;
+}
+.changeNavColor:hover {
+  color: white !important;
+}
