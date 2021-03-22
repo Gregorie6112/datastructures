@@ -1,7 +1,19 @@
 import React from 'react';
 import '../css/RenderTree.css';
+import {Col, Row} from 'react-bootstrap';
 
-const RenderTree = () => (
-
+const RenderBinaryTree = () => (
+  <>
+  <Row className="circle">
+    <Col className="number">
+      10
+    </Col>
+  </Row>
+  <Row className="circle">
+  <Col className="number" >
+      10
+  </Col>
+</Row>
+</>
 );
-export default RenderTree;
+export default RenderBinaryTree;
