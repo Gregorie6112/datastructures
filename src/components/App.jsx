@@ -13,12 +13,22 @@ export default class App extends React.Component {
     this.BubbleSort = this.BubbleSort.bind(this);
     this.visualizer = this.visualizer.bind(this);
   }
-  visualizer(one, two) {
+  visualizer(one, two, time) {
     let numberOne = document.getElementById(one);
     let numberTwo = document.getElementById(two);
+    console.log({numberOne,numberTwo})
     setTimeout(() => {
-      console.log(numberOne, numberTwo)
-    }, 1000)
+      numberOne.className = 'numbers1';
+      numberOne.style.border = '2px solid red'
+      numberTwo.className = 'numbers1';
+      numberTwo.style.border = '2px solid blue'
+    }, (1000 * time) * 2)
+    // setTimeout(() => {
+    //   numberOne.className = 'numbers';
+    //   numberTwo.className = 'numbers';
+    //   numberOne.style.border = '2px solid #8ecc91'
+    //   numberTwo.style.border = '2px solid #8ecc91'
+    // }, (1000 * time) * 3)
   }
 
   BubbleSort() {
@@ -30,13 +40,18 @@ export default class App extends React.Component {
       for (var i = 0; i < end; i++) {
         let cur = array[i];
         let second = array[i + 1];
-        this.visualizer(cur, second)
+        setTimeout(() => {
+          this.visualizer(cur, second)
+
+        }, (1000 * i) * 2)
+
         if (cur > second) {
           swapped = true;
           let swap = cur;
           array[i] = second;
           array[i + 1] = cur;
         }
+
       }
       end--;
     }
@@ -46,9 +61,9 @@ export default class App extends React.Component {
       bubbleSortHelper(arr)
     }
 
-    this.setState({
-      values: arr
-    })
+    // this.setState({
+    //   values: arr
+    // })
   }
 
   render() {
