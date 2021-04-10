@@ -15,7 +15,7 @@ const MainContainer = (props) => {
       <Row className="buttonContainer">
         <Col>
           <button className="button" onClick={props.BubbleSort}>Sort</button>
-          <button className="button">New Set</button>
+          <button className="button" onClick={props.newSet}>New Set</button>
         </Col>
       </Row>
     </Container>

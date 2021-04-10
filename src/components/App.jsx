@@ -9,12 +9,30 @@ export default class App extends React.Component {
     super()
     this.state = {
       values: [10,1,15,30,60,90,5,2],
-      switch: false
     }
     this.BubbleSort = this.BubbleSort.bind(this);
     this.visualizer = this.visualizer.bind(this);
     this.switchVisualizer = this.switchVisualizer.bind(this);
+    this.newSet = this.newSet.bind(this);
 
+  }
+  // Renders a new set and randomizes it
+  newSet() {
+    let tempObj = {};
+    let max = 50;
+    let arr = [];
+    let random = Math.floor(Math.random() * max);
+    while(Object.keys(tempObj).length < 8) {
+      tempObj[random] = 1;
+      random = Math.floor(Math.random() * max);
+    }
+    Object.keys(tempObj).forEach(el => {
+      arr.push(Number(el));
+    })
+    arr.sort(() => Math.random() - 0.5);
+    this.setState({
+      values: arr
+    })
   }
   // SWitches Id's and Divs innerText
   switchVisualizer(one, two) {
@@ -92,11 +110,12 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-      <Header />
-      <MainContainer
-      values={this.state.values}
-      BubbleSort={this.BubbleSort}
-      />
+        <Header />
+        <MainContainer
+          values={this.state.values}
+          BubbleSort={this.BubbleSort}
+          newSet={this.newSet}
+        />
       </>
     )
   }
