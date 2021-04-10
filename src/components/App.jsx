@@ -8,7 +8,8 @@ export default class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      values: [10,1,15,30,60,90,5,9]
+      values: [10,1,15,30,60,90,5,9],
+      switch: false
     }
     this.BubbleSort = this.BubbleSort.bind(this);
     this.visualizer = this.visualizer.bind(this);
@@ -31,7 +32,6 @@ export default class App extends React.Component {
     let numberOne = document.getElementById(one);
     let numberTwo = document.getElementById(two);
     let timer = 1000;
-    console.log({numberOne,numberTwo})
     numberOne.className = 'numbers1';
     numberOne.style.border = '2px solid red'
     numberTwo.className = 'numbers1';
@@ -45,16 +45,15 @@ export default class App extends React.Component {
         numberOne.style.border = '2px solid #8ecc91'
         numberTwo.style.border = '2px solid #8ecc91'
       }, 1000)
-      // timer += 500;
   }
 
   BubbleSort() {
     let arr = this.state.values.slice();
     let swapped = false;
     let timer = 1000;
+    let end = arr.length - 1;
     let bubbleSortHelper = (array) => {
       swapped = false;
-      let end = array.length - 1;
       for (var i = 0; i < end; i++) {
         let cur = array[i];
         let second = array[i + 1];
@@ -68,14 +67,7 @@ export default class App extends React.Component {
           let swap = cur;
           array[i] = second;
           array[i + 1] = cur;
-          // setTimeout(() => {
-          //   this.setState({
-          //     values: array
-          //   })
-          //   this.switchVisualizer(cur, second);
-          // }, 2000 + timer);
         }
-
       }
       end--;
     }
