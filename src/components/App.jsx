@@ -12,28 +12,46 @@ export default class App extends React.Component {
     }
     this.BubbleSort = this.BubbleSort.bind(this);
     this.visualizer = this.visualizer.bind(this);
+    this.switchVisualizer = this.switchVisualizer.bind(this);
+
   }
-  visualizer(one, two, time) {
+  switchVisualizer(one, two) {
+    let temp = one.innerText;
+    let tempId = one.id;
+    setTimeout(() => {
+      // Changing Inner Text
+      one.innerText = two.innerText;
+      two.innerText = temp;
+      // Change Div Id
+      one.id = two.id;
+      two.id = tempId;
+    }, 1000);
+  }
+  visualizer(one, two) {
     let numberOne = document.getElementById(one);
     let numberTwo = document.getElementById(two);
+    let timer = 1000;
     console.log({numberOne,numberTwo})
+    numberOne.className = 'numbers1';
+    numberOne.style.border = '2px solid red'
+    numberTwo.className = 'numbers1';
+    numberTwo.style.border = '2px solid blue'
+    if (one > two) {
+      this.switchVisualizer(numberOne, numberTwo)
+    }
     setTimeout(() => {
-      numberOne.className = 'numbers1';
-      numberOne.style.border = '2px solid red'
-      numberTwo.className = 'numbers1';
-      numberTwo.style.border = '2px solid blue'
-    }, (1000 * time) * 2)
-    // setTimeout(() => {
-    //   numberOne.className = 'numbers';
-    //   numberTwo.className = 'numbers';
-    //   numberOne.style.border = '2px solid #8ecc91'
-    //   numberTwo.style.border = '2px solid #8ecc91'
-    // }, (1000 * time) * 3)
+        numberOne.className = 'numbers';
+        numberTwo.className = 'numbers';
+        numberOne.style.border = '2px solid #8ecc91'
+        numberTwo.style.border = '2px solid #8ecc91'
+      }, 1000)
+      // timer += 500;
   }
 
   BubbleSort() {
     let arr = this.state.values.slice();
     let swapped = false;
+    let timer = 1000;
     let bubbleSortHelper = (array) => {
       swapped = false;
       let end = array.length - 1;
@@ -43,13 +61,19 @@ export default class App extends React.Component {
         setTimeout(() => {
           this.visualizer(cur, second)
 
-        }, (1000 * i) * 2)
-
+        }, 2000 + timer)
+        timer += 1700;
         if (cur > second) {
           swapped = true;
           let swap = cur;
           array[i] = second;
           array[i + 1] = cur;
+          // setTimeout(() => {
+          //   this.setState({
+          //     values: array
+          //   })
+          //   this.switchVisualizer(cur, second);
+          // }, 2000 + timer);
         }
 
       }
@@ -60,10 +84,6 @@ export default class App extends React.Component {
     while (swapped) {
       bubbleSortHelper(arr)
     }
-
-    // this.setState({
-    //   values: arr
-    // })
   }
 
   render() {
