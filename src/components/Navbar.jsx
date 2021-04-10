@@ -8,7 +8,7 @@ const Header = () => {
     <Nav className="mr-auto">
       <Nav.Link className="changeNavColor" href="https://gregorie-calderon-portfolio.herokuapp.com/" target="_blank">PORTFOLIO</Nav.Link>
       <Nav.Link className="changeNavColor" href="https://docs.google.com/document/d/1o4SmMeDEa5vEGEySCZYZlHP7nbTU1Czj61qPd_tPnlg/edit?usp=sharing" target="_blank">JOURNAL</Nav.Link>
-      <Nav.Link className="changeNavColor" >BINARY SEARCH TREE</Nav.Link>
+      <Nav.Link className="changeNavColor" >BUBBLE SORT</Nav.Link>
       <Nav.Link className="changeNavColor" >LINKEDLISTS</Nav.Link>
     </Nav>
   </Navbar>
