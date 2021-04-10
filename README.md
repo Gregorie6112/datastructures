@@ -1,2 +1,10 @@
-## Data Structures Practice w/ Unit Testing
-This repo will be filled with my self practice of grabbing a solid understand of data structures and how to traverse them with different implementations.
+##                                UNDER CONSTRUCTION <--
+
+## Data Structures Visualization Application
+This repository is my current project and what i am currently working on.
+
+## Tech Stack
+Javascript, React, Express w/ Node.js to server up static files.
+
+## Purpose?
+Allows me to really deep dive into the fundamentals of core CS algo's while flexing my React muscle to keep it strong.
