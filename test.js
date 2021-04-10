@@ -1,4 +1,5 @@
-const BinarySearchTree = require('./src/BinarySearchTree.js');
+const BinarySearchTree = require('./src/testFiles/BinarySearchTree.js');
+const BubbleSort = require('./src/testFiles/BubbleSort.js');
 
 test('Should Create an Empty Tree', () => {
   expect(BinarySearchTree).toBe(BinarySearchTree);

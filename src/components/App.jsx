@@ -2,12 +2,13 @@ import React from 'react';
 import '../css/App.css';
 import Header from './Navbar.jsx';
 import MainContainer from './MainContainer.jsx';
-import BinarySearchTree from '../BinarySearchTree.js';
+import BinarySearchTree from '../testFiles/BinarySearchTree.js';
 
 export default class App extends React.Component {
   constructor() {
     super()
     this.state = {
+      timeOuts: [],
       values: [10,1,15,30,60,90,5,2],
     }
     this.BubbleSort = this.BubbleSort.bind(this);
@@ -18,6 +19,9 @@ export default class App extends React.Component {
   }
   // Renders a new set and randomizes it
   newSet() {
+    // this.state.timeOuts.forEach(el => {
+    //   el.clearTimeout()
+    // })
     let tempObj = {};
     let max = 50;
     let arr = [];
@@ -72,6 +76,7 @@ export default class App extends React.Component {
 
   BubbleSort() {
     let arr = this.state.values.slice();
+    let stateTimeOuts = this.state.values.slice();
     let swapped = false;
     let timer = 1000;
     let end = arr.length - 1;
@@ -80,10 +85,13 @@ export default class App extends React.Component {
       for (var i = 0; i < end; i++) {
         let cur = array[i];
         let second = array[i + 1];
-        setTimeout(() => {
+        stateTimeOuts.push(setTimeout(() => {
           this.visualizer(cur, second)
 
-        }, 2000 + timer)
+        }, 2000 + timer))
+        this.setState({
+          timeOuts: stateTimeOuts
+        })
         timer += 1700;
         if (cur > second) {
           swapped = true;
