@@ -1,7 +1,7 @@
 .numbers {
   margin-top: 10%;
   height: fit-content;
-  border: 1px solid #8ecc91;
+  border: 2px solid #8ecc91;
   font-size: 1.5rem;
   margin-left: 1%;
   padding: 4%;
@@ -10,7 +10,7 @@
 .numbers1 {
   transform: translatey(-50px);
   height: fit-content;
-  border: 1px solid #8ecc91;
+  border: 2px solid #8ecc91;
   font-size: 1.5rem;
   margin-left: 1%;
   padding: 4%;

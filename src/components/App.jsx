@@ -17,11 +17,14 @@ export default class App extends React.Component {
     this.newSet = this.newSet.bind(this);
 
   }
-  // Renders a new set and randomizes it
+  // Renders a new set and randomizes it and clears timeouts
   newSet() {
-    // this.state.timeOuts.forEach(el => {
-    //   el.clearTimeout()
-    // })
+    this.state.timeOuts.forEach(el => {
+      clearTimeout(el)
+    })
+    this.setState({
+      timeOuts: []
+    })
     let tempObj = {};
     let max = 50;
     let arr = [];

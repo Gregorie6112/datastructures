@@ -1,6 +1,42 @@
 const BinarySearchTree = require('./src/testFiles/BinarySearchTree.js');
 const BubbleSort = require('./src/testFiles/BubbleSort.js');
 
+test('Bubble Sort Should Exist', () => {
+  expect(BubbleSort).not.toBe(undefined);
+});
+test('Bubble Sort should sort an array', () => {
+  let unSorted = [10,3,5,9,0,1,4,6,12,14];
+  let internalSort = unSorted.sort((a,b) => a-b);
+  let bubbleSort = BubbleSort(unSorted);
+  for (var i = 0; i < bubbleSort.length; i++) {
+    expect(bubbleSort[i]).toBe(internalSort[i]);
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 test('Should Create an Empty Tree', () => {
   expect(BinarySearchTree).toBe(BinarySearchTree);
 });
