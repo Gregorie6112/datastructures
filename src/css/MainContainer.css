@@ -1,5 +1,5 @@
 .mainContainer {
-  height: 90vh;
+  /* height: 90vh; */
   padding: 0;
   margin: 0;
   background-color: #E0E0E0;
@@ -20,11 +20,13 @@
 .valueHolder{
   margin-left: 10%;
 }
-@keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
+
 .button:hover {
-  /* animation: fadeIn 2s linear; */
+  transition: all 1s ease;
   background: #8ecc913d;
+}
+
+.header {
+  text-align: center;
+  font-size: 1rem;
 }

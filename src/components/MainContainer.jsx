@@ -8,6 +8,9 @@ const MainContainer = (props) => {
   return (
     <Container className="mainContainer" fluid>
       <Row>
+        <Row>
+          <p className="header">Welcome to BubbleSort! <br></br>Please select to sort or create a new set. </p>
+        </Row>
         <Col className="valueHolder">
           <RenderBubbleSort values={props}/>
         </Col>

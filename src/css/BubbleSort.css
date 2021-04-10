@@ -1,5 +1,6 @@
 .numbers {
-  margin-top: 10%;
+  transition: all 1.5s ease;
+  margin-top: 8%;
   height: fit-content;
   border: 2px solid #8ecc91;
   font-size: 1.5rem;
@@ -8,6 +9,7 @@
   display: inline-block;
 }
 .numbers1 {
+  transition: all 1s ease;
   transform: translatey(-50px);
   height: fit-content;
   border: 2px solid #8ecc91;

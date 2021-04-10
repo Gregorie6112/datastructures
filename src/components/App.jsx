@@ -58,7 +58,6 @@ export default class App extends React.Component {
   visualizer(one, two) {
     let numberOne = document.getElementById(one);
     let numberTwo = document.getElementById(two);
-    let timer = 1000;
     // Render Both Numbers Red And Blue
     numberOne.className = 'numbers1';
     numberOne.style.border = '2px solid red'
@@ -91,7 +90,7 @@ export default class App extends React.Component {
         stateTimeOuts.push(setTimeout(() => {
           this.visualizer(cur, second)
 
-        }, 2000 + timer))
+        }, 1500 + timer))
         this.setState({
           timeOuts: stateTimeOuts
         })
