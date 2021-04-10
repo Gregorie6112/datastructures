@@ -8,7 +8,7 @@ export default class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      values: [10,1,15,30,60,90,5,9],
+      values: [10,1,15,30,60,90,5,2],
       switch: false
     }
     this.BubbleSort = this.BubbleSort.bind(this);
@@ -16,6 +16,7 @@ export default class App extends React.Component {
     this.switchVisualizer = this.switchVisualizer.bind(this);
 
   }
+  // SWitches Id's and Divs innerText
   switchVisualizer(one, two) {
     let temp = one.innerText;
     let tempId = one.id;
@@ -28,17 +29,21 @@ export default class App extends React.Component {
       two.id = tempId;
     }, 1000);
   }
+  // Changes colors of borders for compared elements
   visualizer(one, two) {
     let numberOne = document.getElementById(one);
     let numberTwo = document.getElementById(two);
     let timer = 1000;
+    // Render Both Numbers Red And Blue
     numberOne.className = 'numbers1';
     numberOne.style.border = '2px solid red'
     numberTwo.className = 'numbers1';
     numberTwo.style.border = '2px solid blue'
     if (one > two) {
+      // Call on Second Function That Switches Id's and Value Of Div
       this.switchVisualizer(numberOne, numberTwo)
     }
+    // Change the border and color back to normal
     setTimeout(() => {
         numberOne.className = 'numbers';
         numberTwo.className = 'numbers';
@@ -76,6 +81,12 @@ export default class App extends React.Component {
     while (swapped) {
       bubbleSortHelper(arr)
     }
+    // Timed for the end and updates state for a sorted array
+    setTimeout(() => {
+      this.setState({
+        values: arr
+      })
+    }, 50000)
   }
 
   render() {
