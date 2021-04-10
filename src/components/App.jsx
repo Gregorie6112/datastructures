@@ -10,6 +10,7 @@ export default class App extends React.Component {
     this.state = {
       timeOuts: [],
       values: [10,1,15,30,60,90,5,2],
+      switchValues: false,
     }
     this.BubbleSort = this.BubbleSort.bind(this);
     this.visualizer = this.visualizer.bind(this);
@@ -23,6 +24,7 @@ export default class App extends React.Component {
       clearTimeout(el)
     })
     this.setState({
+      switchValues: false,
       timeOuts: []
     })
     let tempObj = {};
@@ -45,7 +47,13 @@ export default class App extends React.Component {
   switchVisualizer(one, two) {
     let temp = one.innerText;
     let tempId = one.id;
+    let switchTag = document.getElementById('switch');
     setTimeout(() => {
+      // Change the color of the switch tag and a setTimeout to switch it back to black after
+      switchTag.style.backgroundColor = '#8dcb91'
+      setTimeout(() => {
+        switchTag.style.backgroundColor = '#ff6565'
+      }, 500)
       // Changing Inner Text
       one.innerText = two.innerText;
       two.innerText = temp;
@@ -77,6 +85,9 @@ export default class App extends React.Component {
   }
 
   BubbleSort() {
+    this.setState({
+      switchValues: true,
+    })
     let arr = this.state.values.slice();
     let stateTimeOuts = this.state.values.slice();
     let swapped = false;
@@ -112,8 +123,10 @@ export default class App extends React.Component {
     // Timed for the end and updates state for a sorted array
     setTimeout(() => {
       this.setState({
+        switchValues: false,
         values: arr
       })
+      alert('Done Sorting')
     }, 50000)
   }
 
@@ -125,6 +138,7 @@ export default class App extends React.Component {
           values={this.state.values}
           BubbleSort={this.BubbleSort}
           newSet={this.newSet}
+          switchValues={this.state.switchValues}
         />
       </>
     )

@@ -7,7 +7,7 @@ import RenderBubbleSort from './BubbleSort.jsx';
 const MainContainer = (props) => {
   return (
     <Container className="mainContainer" fluid>
-      <Row>
+      <Row className="mainContainerRow">
         <Row>
           <p className="header">Welcome to BubbleSort! <br></br>Please select to sort or create a new set. </p>
         </Row>
@@ -17,6 +17,11 @@ const MainContainer = (props) => {
       </Row>
       <Row className="buttonContainer">
         <Col>
+          <Row className="sortPopUp">
+          {props.switchValues ?
+           <p className="switchValues" id="switch" onClick={props.BubbleSort}>Switch</p> :
+          null}
+          </Row>
           <button className="button" onClick={props.BubbleSort}>Sort</button>
           <button className="button" onClick={props.newSet}>New Set</button>
         </Col>
