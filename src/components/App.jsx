@@ -4,6 +4,18 @@ import Header from './Navbar.jsx';
 import MainContainer from './MainContainer.jsx';
 import BinarySearchTree from '../testFiles/BinarySearchTree.js';
 
+// Change the value of the button and render the button not pushable
+let buttonTextChange = (boolean) => {
+  let button = document.getElementById('sortButton');
+  if (boolean) {
+    button.innerHTML = 'Sorting . . .'
+    button.style.pointer = 'progress'
+    button.style.pointerEvents = 'none';
+  } else {
+    button.innerHTML = 'Sort'
+    button.style.pointerEvents = '';
+  }
+}
 export default class App extends React.Component {
   constructor() {
     super()
@@ -20,6 +32,7 @@ export default class App extends React.Component {
   }
   // Renders a new set and randomizes it and clears timeouts
   newSet() {
+    buttonTextChange(false);
     this.state.timeOuts.forEach(el => {
       clearTimeout(el)
     })
@@ -85,6 +98,7 @@ export default class App extends React.Component {
   }
 
   BubbleSort() {
+    buttonTextChange(true);
     this.setState({
       switchValues: true,
     })
@@ -122,11 +136,12 @@ export default class App extends React.Component {
     }
     // Timed for the end and updates state for a sorted array
     setTimeout(() => {
+      buttonTextChange(false);
       this.setState({
         switchValues: false,
         values: arr
       })
-      alert('Done Sorting')
+      // alert('Done Sorting')
     }, 50000)
   }
 

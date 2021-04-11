@@ -22,7 +22,7 @@ const MainContainer = (props) => {
            <p className="switchValues" id="switch" onClick={props.BubbleSort}>Switch</p> :
           null}
           </Row>
-          <button className="button" onClick={props.BubbleSort}>Sort</button>
+          <button className="button" id="sortButton" onClick={props.BubbleSort}>Sort</button>
           <button className="button" onClick={props.newSet}>New Set</button>
         </Col>
       </Row>
