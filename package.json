@@ -4,10 +4,10 @@
   "description": "This repo will be filled with my self practice of grabbing a solid understand of data structures and how to traverse them with different implementations.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "jest",
     "start": "node server/index.js",
     "heroku-postbuild": "npm install && npm build",
-    "build": "webpack --watch"
+    "build": "webpack "
   },
   "repository": {
     "type": "git",
