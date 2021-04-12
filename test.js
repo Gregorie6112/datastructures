@@ -10,7 +10,7 @@ test('Bubble Sort should sort an array', () => {
   let bubbleSort = BubbleSort(unSorted);
   for (var i = 0; i < bubbleSort.length; i++) {
     expect(bubbleSort[i]).toBe(internalSort[i]);
-  }
+  };
 });
 
 
