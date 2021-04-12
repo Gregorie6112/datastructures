@@ -1,5 +1,5 @@
 ##                                UNDER CONSTRUCTION <--
-https://github.com/Gregorie6112/datastructures/actions/workflows/node.js.yml/badge.svg
+![CI status]https://github.com/Gregorie6112/datastructures/actions/workflows/node.js.yml/badge.svg
 
 ## Data Structures Visualization Application
 This repository is my current project and what i am currently working on.
