@@ -9,7 +9,6 @@
 }
 
 .switchValues {
-  transition: all .5s ease;
   text-align: center;
   font-size: 1rem;
   width: fit-content;

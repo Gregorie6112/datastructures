@@ -11,11 +11,14 @@ let buttonTextChange = (boolean) => {
     button.innerHTML = 'Sorting . . .'
     button.style.pointer = 'progress'
     button.style.pointerEvents = 'none';
+    button.style.background = '#fb6565';
   } else {
     button.innerHTML = 'Sort'
     button.style.pointerEvents = '';
+    button.style.background = '#8ecc91';
   }
 }
+
 export default class App extends React.Component {
   constructor() {
     super()
@@ -98,6 +101,7 @@ export default class App extends React.Component {
   }
 
   BubbleSort() {
+    // Changes the Sort button value
     buttonTextChange(true);
     this.setState({
       switchValues: true,
