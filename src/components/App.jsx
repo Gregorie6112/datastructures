@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/App.css';
 import Header from './Navbar.jsx';
 import MainContainer from './MainContainer.jsx';
-import BinarySearchTree from '../testFiles/BinarySearchTree.js';
 
 // Change the value of the button and render the button not pushable
 let buttonTextChange = (boolean) => {
