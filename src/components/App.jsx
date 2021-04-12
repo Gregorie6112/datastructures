@@ -24,7 +24,7 @@ export default class App extends React.Component {
     super()
     this.state = {
       timeOuts: [],
-      values: [10,1,15,30,60,90,5,2],
+      values: [23, 47, 16, 2, 28, 33, 42, 4],
       switchValues: false,
     }
     this.BubbleSort = this.BubbleSort.bind(this);
@@ -59,7 +59,7 @@ export default class App extends React.Component {
       values: arr
     })
   }
-  // SWitches Id's and Divs innerText
+  // SWitches Id's and Divs innerText and changes color of switch button
   switchVisualizer(one, two) {
     let temp = one.innerText;
     let tempId = one.id;
@@ -82,6 +82,7 @@ export default class App extends React.Component {
   visualizer(one, two) {
     let numberOne = document.getElementById(one);
     let numberTwo = document.getElementById(two);
+    console.log(one, two)
     // Render Both Numbers Red And Blue
     numberOne.className = 'numbers1';
     numberOne.style.border = '2px solid red'
@@ -107,7 +108,7 @@ export default class App extends React.Component {
       switchValues: true,
     })
     let arr = this.state.values.slice();
-    let stateTimeOuts = this.state.values.slice();
+    let stateTimeOuts = [];
     let swapped = false;
     let timer = 1000;
     let end = arr.length - 1;
@@ -118,12 +119,9 @@ export default class App extends React.Component {
         let second = array[i + 1];
         stateTimeOuts.push(setTimeout(() => {
           this.visualizer(cur, second)
-
         }, 1500 + timer))
-        this.setState({
-          timeOuts: stateTimeOuts
-        })
-        timer += 1700;
+        // Can slow down algo by bumping up speed
+        timer += 1500;
         if (cur > second) {
           swapped = true;
           let swap = cur;
@@ -139,14 +137,18 @@ export default class App extends React.Component {
       bubbleSortHelper(arr)
     }
     // Timed for the end and updates state for a sorted array
-    setTimeout(() => {
+    stateTimeOuts.push(setTimeout(() => {
       buttonTextChange(false);
       this.setState({
         switchValues: false,
         values: arr
       })
-      // alert('Done Sorting')
-    }, 50000)
+      alert('Done Sorting')
+    }, 50000));
+
+    this.setState({
+      timeOuts: stateTimeOuts
+    })
   }
 
   render() {
