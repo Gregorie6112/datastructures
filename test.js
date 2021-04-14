@@ -1,4 +1,4 @@
-const react  = require('react');
+const react = require('react');
 const renderer  = require('react-test-renderer');
 const BinarySearchTree = require('./src/testFiles/BinarySearchTree.js');
 const BubbleSort = require('./src/testFiles/BubbleSort.js');
